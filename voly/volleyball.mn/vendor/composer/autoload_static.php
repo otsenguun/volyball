@@ -524,6 +524,7 @@ class ComposerStaticInitfb5cd8d7e49660e801b083db700fa960
         'App\\Http\\Controllers\\Auth\\RegisteredUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisteredUserController.php',
         'App\\Http\\Controllers\\Auth\\VerifyEmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerifyEmailController.php',
         'App\\Http\\Controllers\\CompertitionController' => __DIR__ . '/../..' . '/app/Http/Controllers/CompertitionController.php',
+        'App\\Http\\Controllers\\CompertitionVideoController' => __DIR__ . '/../..' . '/app/Http/Controllers/CompertitionVideoController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\LoginConroller' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginConroller.php',
         'App\\Http\\Controllers\\TeamsController' => __DIR__ . '/../..' . '/app/Http/Controllers/TeamsController.php',

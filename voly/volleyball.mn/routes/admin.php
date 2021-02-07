@@ -8,6 +8,8 @@ use App\Http\Controllers\admin\PicturesController;
 use App\Http\Controllers\admin\UsersController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\CompertitionController;
+
 Route::get('/admin/index', [HomeController::class, 'index'])->middleware(['auth'])->name('VoleyBall.mn - Агуулга удирдах систем');
 Route::get('/admin', [HomeController::class, 'index'])->middleware(['auth'])->name('VoleyBall.mn - Агуулга удирдах систем');
 
@@ -55,3 +57,7 @@ Route::get('/admin/users/show/{id}', [UsersController::class, 'show'])->middlewa
 Route::get('/admin/users/drop/{id}', [UsersController::class, 'destroy'])->middleware(['auth'])->name('VoleyBall.mn - Агуулга удирдах систем');
 Route::post('/admin/users/dropbox', [UsersController::class, 'dropbox'])->middleware(['auth'])->name('VoleyBall.mn - Агуулга удирдах систем');
 Route::post('/admin/users/edit/changepassword/{id}', [UsersController::class, 'changerpassword'])->middleware(['auth'])->name('VoleyBall.mn - Агуулга удирдах систем');
+
+#Competition
+
+Route::resource('Competition', CompertitionController::class);

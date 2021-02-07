@@ -15,11 +15,8 @@
 
     @yield('css')
 
-    @if($page == 'article')
-        <script src="{{ url('/assets/admin/js/rocket-loader.min.js') }}" data-cf-settings="9fb37375f90c006b1358e509-|49" defer=""></script>
-    @else
-        <script src="{{ url('/assets/admin/ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js') }}" data-cf-settings="cefc70e13f60a96f4d19e827-|49" defer=""></script>
-    @endif
+    <script src="{{ url('/assets/admin/js/rocket-loader.min.js') }}" data-cf-settings="9fb37375f90c006b1358e509-|49" defer=""></script>
+
 
 </head>
 @yield('customized_style')
@@ -57,10 +54,12 @@
 			<div class="menu-item dropdown">
 				<a href="#" data-toggle="dropdown" data-display="static" class="menu-link">
 					<div class="menu-icon"><i class="fa fa-bell nav-icon"></i></div>
-					<div class="menu-label">{{ $countArticle }}</div>
+					<div class="menu-label">{{ isset($countArticle) ? $countArticle  : "" }}</div>
 				</a>
 				<div class="dropdown-menu dropdown-menu-right dropdown-notification">
-					<h6 class="dropdown-header text-gray-900 mb-1">Нийтлэлүүд <label class="menu-label">{{ $countArticle }}</label></h6>
+					<h6 class="dropdown-header text-gray-900 mb-1">Нийтлэлүүд <label class="menu-label">{{ isset($countArticle) ? $countArticle  : "" }}</label></h6>
+
+                    @if(isset($last5articles))
                     @foreach($last5articles as $larticles)
                         <a href="{{ url('/admin/articles/show/'.$larticles->id) }}" class="dropdown-notification-item">
                             <div class="dropdown-notification-icon">
@@ -75,6 +74,7 @@
                             </div>
                         </a>
                     @endforeach
+                    @endif
 					<div class="p-2 text-center mb-n1">
 						<a href="{{ url('/admin/articles') }}" class="text-gray-800 text-decoration-none">Бүх нийтлэлийг харах</a>
 					</div>
@@ -114,7 +114,7 @@
 	<div id="sidebar" class="app-sidebar">
 		<div class="app-sidebar-content" data-scrollbar="true" data-height="100%">
 			<div class="menu">
-				<div class="menu-item @if($page == 'home') active @endif">
+				<div class="menu-item @if(isset($page) && $page == 'home') active @endif">
 					<a href="{{ url('/admin') }}" class="menu-link">
 						<span class="menu-icon"><i class="fa fa-laptop"></i></span>
 						<span class="menu-text">Хяналтын хуудас</span>
@@ -124,50 +124,50 @@
 				<div class="menu-header">Хяналтын хэсэг</div>
 
 
-				<div class="menu-item @if($page == 'cooperation') active @endif">
+				<div class="menu-item @if(isset($page) && $page == 'cooperation') active @endif">
 					<a href="{{ url('/admin/cooperation') }}" class="menu-link">
 						<span class="menu-icon"><i class="fab fa-pinterest-square"></i></span>
 						<span class="menu-text">Хамтран ажиллагч байгууллагууд</span>
 					</a>
                 </div>
-                <div class="menu-item @if($page == 'article') active @endif">
+                <div class="menu-item @if(isset($page) && $page == 'article') active @endif">
 					<a href="{{ url('/admin/articles') }}" class="menu-link">
 						<span class="menu-icon"><i class="fas fa-newspaper"></i></span>
 						<span class="menu-text">Нийтлэл</span>
 					</a>
                 </div>
-                    <div class="menu-item @if($page == 'team') active @endif">
+                    <div class="menu-item @if(isset($page) && $page == 'team') active @endif">
 					<a href="{{ url('/admin/team') }}" class="menu-link">
 						<span class="menu-icon"><i class="fas fa-newspaper"></i></span>
 						<span class="menu-text">Баг</span>
 					</a>
                 </div>
-                    <div class="menu-item @if($page == 'players') active @endif">
+                    <div class="menu-item @if(isset($page) && $page == 'players') active @endif">
 					<a href="{{ url('/admin/playes') }}" class="menu-link">
 						<span class="menu-icon"><i class="fas fa-newspaper"></i></span>
 						<span class="menu-text">Тоглогч</span>
 					</a>
                 </div>
-                     <div class="menu-item @if($page == 'winner') active @endif">
-					<a href="{{ url('/admin/winner') }}" class="menu-link">
+                     <div class="menu-item @if(isset($page) && $page == 'winner') active @endif">
+					<a href="{{ route('Competition.index') }}" class="menu-link">
 						<span class="menu-icon"><i class="fas fa-newspaper"></i></span>
 						<span class="menu-text">Тэмцээн</span>
 					</a>
                 </div>
-                <div class="menu-item @if($page == 'comment') active @endif">
+                <div class="menu-item @if(isset($page) && $page == 'comment') active @endif">
 					<a href="{{ url('/admin/comments') }}" class="menu-link">
 						<span class="menu-icon"><i class="fas fa-comments"></i></span>
 						<span class="menu-text">Сэтгэгдэл</span>
 					</a>
                 </div>
-                <div class="menu-item @if($page == 'pictures') active @endif">
+                <div class="menu-item @if(isset($page) && $page == 'pictures') active @endif">
 					<a href="{{ url('/admin/pictures') }}" class="menu-link">
 						<span class="menu-icon"><i class="fas fa-images"></i></span>
 						<span class="menu-text">Зургын цомог</span>
 					</a>
                 </div>
                 @if(Auth::user()->premission == 1)
-                <div class="menu-item @if($page == 'user') active @endif">
+                <div class="menu-item @if(isset($page) && $page == 'user') active @endif">
 					<a href="{{ url('/admin/users') }}" class="menu-link">
 						<span class="menu-icon"><i class="fa fa-users"></i></span>
 						<span class="menu-text">Хэрэглэгч</span>

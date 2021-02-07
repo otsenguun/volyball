@@ -17,6 +17,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\RegisteredUserController' => $baseDir . '/app/Http/Controllers/Auth/RegisteredUserController.php',
     'App\\Http\\Controllers\\Auth\\VerifyEmailController' => $baseDir . '/app/Http/Controllers/Auth/VerifyEmailController.php',
     'App\\Http\\Controllers\\CompertitionController' => $baseDir . '/app/Http/Controllers/CompertitionController.php',
+    'App\\Http\\Controllers\\CompertitionVideoController' => $baseDir . '/app/Http/Controllers/CompertitionVideoController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\LoginConroller' => $baseDir . '/app/Http/Controllers/LoginConroller.php',
     'App\\Http\\Controllers\\TeamsController' => $baseDir . '/app/Http/Controllers/TeamsController.php',
