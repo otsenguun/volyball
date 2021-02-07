@@ -126,7 +126,7 @@
                                 <input name="mvp_main" type="text" class="form-control" required>
                                 @foreach($statistic_info as $key => $info)
                                 Эхний {{$info}}
-                                <input name="mvp_main_info[$key]" type="number" class="form-control">
+                                <input name="mvp_main_info[{{$info}}]" type="number" class="form-control">
                                 @endforeach
                             </div>
                             <div class="col-md-6">
@@ -135,7 +135,7 @@
 
                                 @foreach($statistic_info as $key => $info)
                                 Дараагийн {{$info}}
-                                <input name="mvp_second_info[$key]" type="number" class="form-control">
+                                <input name="mvp_second_info[{{$info}}]" type="number" class="form-control">
                                 @endforeach
                             </div>
                         </div>
@@ -194,13 +194,18 @@
                             <label for="">Тэмцээний төлөв</label>
                             <select name="status" id="" class="form-control">
                                     <option value="1">Эхлээгүй</option>
-                                    <option value="2">Дууссанн</option>
+                                    <option value="2">Дууссан</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="">Тэмцээний онгоо</label>
                             <input name="create_date" type="date" value="{{date('Y-m-d')}}" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Үзэгчид</label>
+                            <input name="uzegch_count" type="number" value="" class="form-control">
                         </div>
 
                         <div class="form-group">

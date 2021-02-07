@@ -89,15 +89,9 @@ class CompertitionController extends Controller
             $sets['main'] = $request->main_set;
             $set_count +=  $main_set_count;
         }
+
         if(isset($request->second_set) && count($request->second_set) > 0){
-            $second_set_count = 0;
-            foreach($request->second_set as $ss){
-                if($ss > 0 && $ss != ""){
-                    $second_set_count += 1;
-                }
-            }
             $sets['second'] = $request->second_set;
-            $set_count +=  $second_set_count;
         }
 
         $comp->set_count = $set_count;
@@ -152,7 +146,27 @@ class CompertitionController extends Controller
     {
 
         $comp = Competition::find($id);
-        return view('admin/competition/edit',compact('comp'));
+        $statistic_info = [
+            'point 1',
+            'point 2',
+            'point 3',
+            'point 4',
+            'point 5',
+        ];
+        $set_count = [
+            1,2,3,4,5
+        ];
+        $main_statistic = [
+            'Давуулалтын %',
+            'Амжилттай довтолгоо',
+            'Блок',
+            'Сэрвис эйс',
+            'Дундаж оноо/сэт',
+            'Алдаа',
+            'Гэмтэл'
+        ];
+
+        return view('admin/competition/edit',compact('comp','statistic_info','set_count','main_statistic'));
     }
 
     /**
@@ -173,23 +187,45 @@ class CompertitionController extends Controller
         $comp->score_main = $request->score_main;
         $comp->score_second = $request->score_second;
         $comp->winner = $request->winner;
+
+        $comp->main_team_name = $request->main_team_name;
+        $comp->second_team_name = $request->second_team_name;
+
         $comp->mvp_main = $request->mvp_main;
         $comp->mvp_second = $request->mvp_second;
-        $comp->mvp_main_info = $request->mvp_main_info;
-        $comp->mvp_second_info = $request->mvp_second_info;
-        $comp->set_count = $request->set_count;
-        $comp->sets = serialize($request->sets);
+        $comp->mvp_main_info = serialize($request->mvp_main_info);
+        $comp->mvp_second_info = serialize($request->mvp_second_info);
+
+        $sets = [];
+        $set_count = 0;
+        if(isset($request->main_set) && count($request->main_set) > 0){
+            $main_set_count = 0;
+            foreach($request->main_set as $ms){
+                if($ms > 0 && $ms != ""){
+                    $main_set_count += 1;
+                }
+            }
+            $sets['main'] = $request->main_set;
+            $set_count +=  $main_set_count;
+        }
+
+        if(isset($request->second_set) && count($request->second_set) > 0){
+            $sets['second'] = $request->second_set;
+        }
+
+        $comp->set_count = $set_count;
+        $comp->sets = serialize($sets);
 
 
         if( $request->hasFile('image') ){
 
-            $old_path = $comp->image;
+            $old_path1 = $comp->image;
 
-            if($old_path != ''){
-                unlink('app/'.$old_path);
+            if($old_path1 != ''){
+                unlink('app/'.$old_path1);
             }
-            $path = $request->file('image')->store('competition_image');
-            $comp->image = $path;
+            $path1 = $request->file('image')->store('competition_image');
+            $comp->image = $path1;
 
         }
 
@@ -211,11 +247,14 @@ class CompertitionController extends Controller
         // $comp->background_image = $request->background_image;
 
         $comp->details = $request->details;
-        $comp->match_status = serialize($request->match_status);
+        $match_status['main'] = $request->request_match_status;
+        $match_status['second'] = $request->request_match_second;
+        $comp->match_status = serialize($match_status);
         $comp->match_guide = $request->match_guide;
+
         $comp->save();
 
-        return redirect()->route('Compertition.index',$id);
+        return redirect()->route('Competition.index');
 
     }
 

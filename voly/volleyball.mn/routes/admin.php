@@ -61,3 +61,6 @@ Route::post('/admin/users/edit/changepassword/{id}', [UsersController::class, 'c
 #Competition
 
 Route::resource('Competition', CompertitionController::class);
+
+#Teams
+Route::resource('Teams', TeamsController::class);

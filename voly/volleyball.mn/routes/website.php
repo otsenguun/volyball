@@ -10,3 +10,4 @@ Route::get('/news/category/{id}/{category}', [IndexController::class, 'categoryl
 Route::get('/news/search', [IndexController::class, 'search'])->name($title);
 Route::get('/news/{id}/{slug}', [IndexController::class, 'singlenews'])->name($title);
 Route::post('/news/{id}/{slug}', [IndexController::class, 'comment'])->name($title);
+Route::get('/showCompetition/{id}',[IndexController::class,'showCompetition'])->name($title);

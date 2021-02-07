@@ -10,9 +10,31 @@ use App\Models\CooperationLogos;
 use App\Models\Gallery;
 use App\Models\Comment;
 use Illuminate\Support\Str;
+use App\Models\Competition;
 
 class IndexController extends Controller
 {
+
+    public function showCompetition($id){
+
+        $articles = Article::orderby('updated_at', 'desc')->take(11)->get();
+        $cooperationLogos = CooperationLogos::orderby('updated_at', 'desc')->take(7)->get();
+        $galleries = Gallery::orderby('updated_at', 'desc')->get();
+
+        $comp = Competition::find($id);
+        $page = 'home';
+
+        return view('competition_show')->with([
+            'page' => $page,
+            'articles' => $articles,
+            'cooperationLogos' => $cooperationLogos,
+            'galleries' => $galleries,
+            'comp' => $comp
+        ]);
+
+    }
+
+
     public function index()
     {
         $articles = Article::orderby('updated_at', 'desc')->take(11)->get();

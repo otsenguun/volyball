@@ -124,6 +124,7 @@
                                 <th class="border-bottom-0 border-top-0 pt-0 pb-2">Төлөв</th>
                                 <th class="border-bottom-0 border-top-0 pt-0 pb-2">Огноо</th>
                                 <th class="border-bottom-0 border-top-0 pt-0 pb-2">Тоглолтийн үр дүн</th>
+                                <th  class="border-bottom-0 border-top-0 pt-0 pb-2">бусад</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -142,6 +143,7 @@
                                 <td class="align-middle" data-bs-toggle="tooltip" data-bs-placement="top">
                                     {{$comp->result()}}
                                 </td>
+                                <td><a href="{{route('Competition.edit',$comp->id)}}" class="btn btn-waring"> <i class="fa fa-edit"></i> </a></td>
 
                             </tr>
                             @endforeach
