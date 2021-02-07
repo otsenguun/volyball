@@ -1,0 +1,10 @@
+.logins{
+    margin-top: 25px;
+}
+.logins .title{
+    border-left: 5px solid #a51c30;
+    padding-left: 25px;
+}
+.logins img{
+    width: 100%;
+}

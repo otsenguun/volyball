@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Волейболын Залуучуудын Холбоо</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link href="assets/css/main.css" rel="stylesheet" media="screen" />
+
+    <!-- SwiperJs CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
+
+  <body>
+    <!-- layout-->
+    <div id="layout">
+      <!-- Header-->
+      <header class="mobile-only-header">
+        <!-- End headerbox-->
+        <div class="headerbox">
+          <div class="container">
+            <div class="row justify-content-between align-items-center">
+              <!-- Logo-->
+              <div class="col">
+                <div class="logo">
+                  <a href="index.html" title="Return Home">
+                    <img
+                      src="img/icons/1.png"
+                      alt="Logo"
+                      class="logo_img"
+                      width="60"
+                    />
+                  </a>
+                </div>
+              </div>
+              <!-- End Logo-->
+              <button class="watch-button" style="margin-right: 1.5em">
+                Live<span class="live-icon"></span>
+              </button>
+
+              <!-- Call Nav Menu-->
+              <a class="mobile-nav" href="#mobile-nav"
+                ><i class="fa fa-bars"></i
+              ></a>
+              <!-- End Call Nav Menu-->
+              <!-- End Adds Header-->
+            </div>
+          </div>
+        </div>
+        <!-- End headerbox-->
+      </header>
+      <!-- End Header-->
+      <!-- mainmenu-->
+      <nav class="mainmenu">
+        <div class="container">
+          <div class="menu-icon">
+            <img src="img/icons/1.png" alt="Logo" />
+          </div>
+          <!-- Menu-->
+          <ul class="sf-menu" id="menu">
+            <li class="float-right">
+              <i class="fa fa-search color-white" style="cursor: pointer"></i>
+            </li>
+
+            <li class="float-right">
+              <button class="watch-button">Live<span class="live-icon"></span></button>
+            </li>
+
+            <li class="current active">
+              <a href="#">Мэдээ</a>
+            </li>
+
+            <li class="current">
+              <a href="all-teams.html">Багууд</a>
+            </li>
+            <li>
+              <a href="#">Тэмцээнүүд</a>
+              <div class="sf-mega">
+                <div class="row">
+                  <div class="col-md-3">
+                    <h5>
+                      <i class="fa fa-trophy" aria-hidden="true"></i>Тэмцээн
+                    </h5>
+                    <ul>
+                      <li><a href="points.html">Оноо заалт</a></li>
+                      <li><a href="all-players.html">Тоглогчид</a></li>
+                      <li><a href="#">Грүппүүд</a></li>
+                      <li><a href="calendar.html">Калэндар</a></li>
+                      <li><a href="#">Бидэнтэй холбогдох</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="col-md-3">
+                    <h5>
+                      <i class="fa fa-users" aria-hidden="true"></i> Багуудын жагсаалт
+                    </h5>
+                    <div class="img-hover">
+                      <img src="img/blog/1.jpg" alt="" class="img-responsive" />
+                      <div class="overlay"><a href="all-teams.html">+</a></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <h5>
+                      <i class="fa fa-futbol-o" aria-hidden="true"></i> Тоглогчид
+                      List
+                    </h5>
+                    <div class="img-hover">
+                      <img src="img/blog/2.jpg" alt="" class="img-responsive" />
+                      <div class="overlay"><a href="all-players.html">+</a></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <h5>
+                      <i class="fa fa-gamepad" aria-hidden="true"></i> Үр дүн
+                      Info
+                    </h5>
+                    <div class="img-hover">
+                      <img src="img/blog/3.jpg" alt="" class="img-responsive" />
+                      <div class="overlay"><a href="points.html">+</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="#">ВЗХ</a>
+              <div class="sf-mega">
+                <div class="row">
+                  <div class="col-md-4">
+                    <h5>
+                      Танилцуулга
+                    </h5>
+                    <ul>
+                      <li><a href="points.html">Бидний тухай</a></li>
+                      <li><a href="#">Зорилго Зорилт</a></li>
+                      <li><a href="#">Ерөнхийлөгч</a></li>
+                      <li><a href="#">Зургын цомог</a></li>
+                      <li><a href="#">Клуб тоглогчид</a></li>
+                      <li><a href="#">Бидэнтэй холбогдох</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="col-md-4">
+                    <h5>
+                      Бүтэц, зохион байгуулалт
+                    </h5>
+                    <ul>
+                      <li><a href="points.html">Зөвлөл, Байнгын хороод</a></li>
+                      <li><a href="#">ИХ ХУРАЛ</a></li>
+                      <li><a href="#">ГИШҮҮН БАЙГУУЛЛАГУУД</a></li>
+                      <li><a href="#">Эрх зүйн байгууллагууд</a></li>
+                      <li><a href="#">ЕРӨНХИЙ НАРИЙН БИЧГИЙН ДАРГЫН ГАЗАР</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="col-md-4">
+                    <h5>
+                      Бичиг баримт
+                    </h5>
+                    <ul>
+                      <li><a href="points.html">Дүрэм, Журам</a></li>
+                      <li><a href="#">Тэмцээний тайлан</a></li>
+                      <li><a href="#">Санхүү, Аудитын тайлан
+                      </a></li>
+                      <li><a href="#">ЛОГО БЭЛГЭДЭЛ</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="current">
+              <a href="http://volleyball.mn/">Нүүр хуудас</a>
+            </li>
+
+          </ul>
+          <!-- End Menu-->
+          <!-- Color Red -->
+        </div>
+      </nav>
+      <!-- End mainmenu-->
+      <div id="mobile-nav">
+        <!-- Menu-->
+        <ul>
+            <li>
+              <a href="http://volleyball.mn/">Нүүр</a>
+              <ul>
+                <li>
+                  <a href="all-players.html">Бүх Тоглогчид</a>
+                </li>
+                <li>
+                  <a href="single-player.html">Нэг тоглогч</a>
+                </li>
+                <li>
+                  <a href="single-team.html">Нэг баг</a>
+                </li>
+                <li>
+                  <a href="points.html">Оноолт</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="single-team.html">Багууд</a>
+              <ul>
+                <li>
+                  <a href="single-team.html">Бүх багууд</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#">Тоглогчид</a>
+            </li>
+
+            <li>
+              <a href="points.html">Оноолтууд</a>
+            </li>
+
+            <li>
+              <a href="points.html">Тоглолтын хариу</a>
+            </li>
+          </ul>
+        <!-- End Menu-->
+      </div>
+      <!-- End -->
+
+      <!-- Section Title -->
+      <div
+        class="section-title single-result"
+        style="background: url(img/locations/3.jpg); margin-top: 40px"
+      >
+        <div class="container">
+          <div class="row">
+            <!-- Result Location -->
+            <div class="col-lg-12">
+              <div class="result-location">
+                <ul>
+                  <li>Лха 26 Зур 2018</li>
+
+                  <li>
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    Спортын төв ордон, Улаанбаатар
+                  </li>
+                  <li>Үзэгчид: 80,000</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- End Result Location -->
+
+          <!-- Result -->
+          <div class="row">
+            <div class="col-md-5 col-lg-5">
+              <div class="team">
+                <img src="img/clubs-logos/colombia.png" alt="club-logo" />
+                <a href="#">Колумб</a>
+                <ul>
+                  <li>MVP: Jamez Rodriguez</li>
+                  <li>22</li>
+                  <li>
+                    <i class="fas fa-volleyball-ball"></i>
+                    25
+                  </li>
+                  <li>
+                    <i class="fas fa-volleyball-ball"></i>
+                    25
+                  </li>
+                  <li>19</li>
+                  <li>
+                    <i class="fas fa-volleyball-ball"></i>
+                    32
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-md-2 col-lg-2">
+              <div class="result-match">3 : 2</div>
+
+              <div class="live-on">
+                <a href="#">
+                  Live on
+                  <img src="img/img-theme/espn.gif" alt="" />
+                </a>
+              </div>
+            </div>
+
+            <div class="col-md-5 col-lg-5">
+              <div class="team right">
+                <a href="#">Япон</a>
+                <img src="img/clubs-logos/japan.png" alt="club-logo" />
+                <ul>
+                  <li>MVP: Yuji Tsuki</li>
+                  <li>
+                    25
+                    <i class="fas fa-volleyball-ball"></i>
+                  </li>
+                  <li>18</li>
+                  <li>23</li>
+                  <li>
+                    25
+                    <i class="fas fa-volleyball-ball"></i>
+                  </li>
+                  <li>30</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- End Result -->
+
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="timeline-result">
+                <div class="team-timeline">
+                  <img src="img/clubs-logos/colombia.png" alt="club-logo" />
+                  <a href="#">Кол</a>
+                </div>
+                <ul class="timeline">
+                  <li
+                    class="card-result bottom goal"
+                    style="left: 10%"
+                    data-placement="top"
+                    data-trigger="hover"
+                    data-toggle="popover"
+                    title="Япон: 25"
+                    data-content="Колумб: 22"
+                  >
+                    1-р сэт
+                  </li>
+
+                  <li
+                    class="card-result top goal"
+                    style="left: 30%"
+                    data-placement="bottom"
+                    data-trigger="hover"
+                    data-toggle="popover"
+                    title="Колумб: 25"
+                    data-content="Япон: 18"
+                  >
+                    2-р сэт
+                  </li>
+
+                  <li
+                    class="card-result top goal"
+                    style="left: 50%"
+                    data-placement="bottom"
+                    data-trigger="hover"
+                    data-toggle="popover"
+                    title="Колумб: 25"
+                    data-content="Япон: 23"
+                  >
+                    3-р сэт
+                  </li>
+
+                  <li
+                    class="card-result bottom goal"
+                    style="left: 70%"
+                    data-placement="top"
+                    data-trigger="hover"
+                    data-toggle="popover"
+                    title="Япон: 25"
+                    data-content="Колумб: 19"
+                  >
+                    4-р сэт
+                  </li>
+
+                  <li
+                    class="card-result top goal"
+                    style="left: 90%"
+                    data-placement="bottom"
+                    data-trigger="hover"
+                    data-toggle="popover"
+                    title="Колумб: 32"
+                    data-content="Япон: 30"
+                  >
+                    5-р сэт
+                  </li>
+                </ul>
+                <div class="team-timeline">
+                  <img src="img/clubs-logos/japan.png" alt="club-logo" />
+                  <a href="#">Япон</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Section Title -->
+
+      <!-- Section Area - Content Central -->
+      <section class="content-info">
+        <!-- Single Team Tabs -->
+        <div class="single-team-tabs">
+          <div class="container">
+            <div class="row">
+              <!-- Left Content - Tabs and Carousel -->
+              <div class="col-xl-12 col-md-12">
+                <!-- Nav Tabs -->
+                <ul class="nav nav-tabs" id="myTab">
+                  <li class="active">
+                    <a href="#summary" data-toggle="tab">Тойм</a>
+                  </li>
+                  <li><a href="#stats" data-toggle="tab">Статистик</a></li>
+                </ul>
+                <!-- End Nav Tabs -->
+              </div>
+
+              <div class="col-lg-12">
+                <!-- Content Tabs -->
+                <div class="tab-content">
+                  <!-- Tab One - Sumary -->
+                  <div class="tab-pane active" id="summary">
+                    <div class="panel-box padding-b">
+                      <div class="titles">
+                        <h4>Тоглолтын тойм</h4>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-12 col-xl-4">
+                          <img src="img/players/4.jpg" alt="" />
+                        </div>
+
+                        <div class="col-lg-12 col-xl-8">
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Nesciunt ducimus labore autem, nobis ullam
+                            animi at aut illum temporibus vitae enim praesentium
+                            libero repudiandae reiciendis, repellendus quam
+                            laudantium porro ad soluta similique iusto officia
+                            ipsam est. Laudantium ratione necessitatibus saepe.
+                          </p>
+
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Nam suscipit harum ducimus possimus eaque
+                            impedit nesciunt blanditiis quia omnis temporibus?
+                          </p>
+
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Architecto nobis provident, nemo dolore libero
+                            voluptates beatae vel corporis id asperiores porro
+                            sapiente repudiandae quidem amet?
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <!--Items Club video -->
+                    <div class="row no-line-height">
+                      <div class="col-md-12">
+                        <h3 class="clear-title">Тоглолтын бичлэг</h3>
+                      </div>
+
+                      <!--Item Club News -->
+                      <div class="col-lg-6 col-xl-4">
+                        <!-- Widget Text-->
+                        <div class="panel-box">
+                          <div class="titles no-margin">
+                            <h4>
+                              <a href="#"
+                                >Yuji Tsushima - гийн онцлох тоглолт</a
+                              >
+                            </h4>
+                          </div>
+                          <iframe
+                            width="560"
+                            height="315"
+                            src="https://www.youtube.com/embed/y2ELmZLW5tY"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                          ></iframe>
+                        </div>
+                        <!-- End Widget Text-->
+                      </div>
+                      <!--End Item Club News -->
+
+                      <!--Item Club News -->
+                      <div class="col-lg-6 col-xl-4">
+                        <!-- Widget Text-->
+                        <div class="panel-box">
+                          <div class="titles no-margin">
+                            <h4>
+                              <a href="#">Колумбын багын дараалалсан 7н оноо</a>
+                            </h4>
+                          </div>
+                          <iframe
+                            width="560"
+                            height="315"
+                            src="https://www.youtube.com/embed/l5wx531jGtQ"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                          ></iframe>
+                        </div>
+                        <!-- End Widget Text-->
+                      </div>
+                      <!--End Item Club News -->
+
+                      <!--Item Club News -->
+                      <div class="col-lg-6 col-xl-4">
+                        <!-- Widget Text-->
+                        <div class="panel-box">
+                          <div class="titles no-margin">
+                            <h4><a href="#">Японы эсрэг колумб</a></h4>
+                          </div>
+                          <iframe
+                            width="560"
+                            height="315"
+                            src="https://www.youtube.com/embed/sGOdXgP7Lb0"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                          ></iframe>
+                        </div>
+                        <!-- End Widget Text-->
+                      </div>
+                      <!--End Item Club News -->
+                    </div>
+                    <!--End Items Club video -->
+
+                    <!--Items Club News -->
+                    <div class="row home-slider">
+                      <div class="col-md-12">
+                        <h3 class="clear-title">Тоглолтын мэдээ</h3>
+                      </div>
+
+                      <!--Item Club News -->
+                      <div class="col-lg-6 col-xl-3">
+                        <!-- Widget Text-->
+                        <div class="card-wrapper">
+                          <article class="card" role="article">
+                            <a href="#">
+                              <div class="card-text">
+                                <div class="card-meta"><i class="fa fa-calendar"></i> Гурван сарын 9, 2019  </i></div>
+                                <h2 class="card-title">
+                                  Колумб Японыг буулган авлаа
+                                </h2>
+                              </div>
+                              <img class="card-image" src="img/blog/1.jpg" />
+                            </a>
+                          </article>
+                        </div>
+                        <!-- End Widget Text-->
+                      </div>
+                      <!--End Item Club News -->
+
+                      <!--Item Club News -->
+                      <div class="col-lg-6 col-xl-3">
+                        <!-- Widget Text-->
+                        <div class="card-wrapper">
+                          <article class="card" role="article">
+                            <a href="#">
+                              <div class="card-text">
+                                <div class="card-meta"><i class="fa fa-calendar"></i> Гурван сарын 9, 2019  </i></div>
+                                <h2 class="card-title">
+                                  Япон улс дэлхийн аваргаас хасагдлаа.
+                                </h2>
+                              </div>
+                              <img class="card-image" src="img/blog/2.jpg" />
+                            </a>
+                          </article>
+                        </div>
+                        <!-- End Widget Text-->
+                      </div>
+                      <!--End Item Club News -->
+
+                      <!--Item Club News -->
+                      <div class="col-lg-6 col-xl-3">
+                        <!-- Widget Text-->
+                        <div class="card-wrapper">
+                          <article class="card" role="article">
+                            <a href="#">
+                              <div class="card-text">
+                                <div class="card-meta"><i class="fa fa-calendar"></i> Гурван сарын 9, 2019  </i></div>
+                                <h2 class="card-title">
+                                  Шилдэг тоглогч колумб улсын Jamez Rodriguez
+                                </h2>
+                              </div>
+                              <img class="card-image" src="img/blog/3.jpg" />
+                            </a>
+                          </article>
+                        </div>
+                        <!-- End Widget Text-->
+                      </div>
+                      <!--End Item Club News -->
+
+                      <!--Item Club News -->
+                      <div class="col-lg-6 col-xl-3">
+                        <!-- Widget Text-->
+                        <div class="card-wrapper">
+                          <article class="card" role="article">
+                            <a href="#">
+                              <div class="card-text">
+                                <div class="card-meta"><i class="fa fa-calendar"></i> Гурван сарын 9, 2019  </i></div>
+                                <h2 class="card-title">
+                                  Колумб улс ялалт байгууллаа.
+                                </h2>
+                              </div>
+                              <img class="card-image" src="img/blog/4.jpg" />
+                            </a>
+                          </article>
+                        </div>
+                        <!-- End Widget Text-->
+                      </div>
+                      <!--End Item Club News -->
+                    </div>
+                    <!--End Items Club News -->
+                  </div>
+                  <!-- Tab One - Sumary -->
+
+                  <!-- Tab Two - stats -->
+                  <div class="tab-pane" id="stats">
+                    <!-- Result -->
+                    <div class="row match-stats">
+                      <div class="col-lg-5">
+                        <div class="team">
+                          <img
+                            src="img/clubs-logos/colombia.png"
+                            alt="club-logo"
+                          />
+                          <a href="#">Колумб</a>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-2">
+                        <div class="result-match">VS</div>
+                      </div>
+
+                      <div class="col-lg-5">
+                        <div class="team right">
+                          <a href="#">Япон</a>
+                          <img
+                            src="img/clubs-logos/japan.png"
+                            alt="club-logo"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-lg-12">
+                        <ul>
+                          <li>
+                            <span class="left">58.5</span>
+                            <span class="center">Давуулалтын %</span>
+                            <span class="right">40</span>
+                          </li>
+
+                          <li>
+                            <span class="left">169</span>
+                            <span class="center">Амжилттай довтолгоо</span>
+                            <span class="right">140</span>
+                          </li>
+
+                          <li>
+                            <span class="left">56</span>
+                            <span class="center">Блок</span>
+                            <span class="right">48</span>
+                          </li>
+
+                          <li>
+                            <span class="left">23</span>
+                            <span class="center">Сэрвис эйс</span>
+                            <span class="right">27</span>
+                          </li>
+
+                          <li>
+                            <span class="left">25</span>
+                            <span class="center">Дундаж оноо/сэт</span>
+                            <span class="right">22</span>
+                          </li>
+
+                          <li>
+                            <span class="left">12</span>
+                            <span class="center">Алдаа</span>
+                            <span class="right">7</span>
+                          </li>
+
+                          <li>
+                            <span class="left">0</span>
+                            <span class="center">Гэмтэл</span>
+                            <span class="right">2</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- End Result -->
+                  </div>
+                  <!-- End Tab Two - stats -->
+                </div>
+                <!-- Content Tabs -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Single Team Tabs -->
+      </section>
+      <!-- End Section Area -  Content Central -->
+
+      <!-- footer-->
+      <footer id="footer" class="footer-3">
+        <!-- Footer Top-->
+        <div class="top-footer">
+          <!-- Logo Footer-->
+          <div class="col-lg-12">
+            <div class="logo-footer">
+              <img src="img/icons/1.png" alt="Logo" width="170" />
+            </div>
+          </div>
+          <!-- End Logo Footer-->
+
+          <!-- Social Icons-->
+          <ul class="social">
+            <li>
+              <div>
+                <a href="#" class="facebook">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </div>
+            </li>
+            <li>
+              <div>
+                <a href="#" class="twitter-icon">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </div>
+            </li>
+            <li>
+              <div>
+                <a href="#" class="vimeo">
+                  <i class="fa fa-vimeo-square"></i>
+                </a>
+              </div>
+            </li>
+            <li>
+              <div>
+                <a href="#" class="google-plus">
+                  <i class="fa fa-google-plus"></i>
+                </a>
+              </div>
+            </li>
+            <li>
+              <div>
+                <a href="#" class="youtube">
+                  <i class="fa fa-youtube"></i>
+                </a>
+              </div>
+            </li>
+          </ul>
+          <!-- End Social Icons-->
+        </div>
+        <!-- End Footer Top-->
+        <div class="footer-down">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <p>&copy; 2020 . Зохиогчын эрхээр хамгаалагдсан.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- End footer-->
+    </div>
+    <!-- SwiperJS CDN -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- End SwiperJS CDN -->
+
+    <!-- Initialize swiper -->
+    <script>
+      var mySwiper = new Swiper('.swiper-container', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+      });
+    </script>
+    <!-- Initialize swiper end -->
+
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+    <script type="text/javascript" src="assets/js/popper.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/theme-scripts.js"></script>
+    <script type="text/javascript" src="assets/js/theme-main.js"></script>
+
+    <!-- End JQuert and Popup -->
+  </body>
+</html>
