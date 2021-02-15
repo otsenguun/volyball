@@ -11,9 +11,120 @@ use App\Models\Gallery;
 use App\Models\Comment;
 use Illuminate\Support\Str;
 use App\Models\Competition;
-
+use App\Models\Player;
+use App\Models\Team;
 class IndexController extends Controller
 {
+    public function ShowPlayers($id){
+
+        $articles = Article::orderby('updated_at', 'desc')->take(11)->get();
+        $cooperationLogos = CooperationLogos::orderby('updated_at', 'desc')->take(7)->get();
+        $galleries = Gallery::orderby('updated_at', 'desc')->get();
+        $player = Player::find($id);
+        $page = 'home';
+        $player_type = [
+            'forward' => 'Довтлогч',
+            'defender' => 'Хамгаалагч',
+            'midfielder' => 'Дунд блоккэр',
+            'goalkeeper' => 'Либэро',
+        ];
+
+        return view('player_show')->with([
+            'page' => $page,
+            'articles' => $articles,
+            'cooperationLogos' => $cooperationLogos,
+            'galleries' => $galleries,
+            'player' => $player,
+            'player_type' => $player_type
+        ]);
+
+    }
+
+    public function AllPlayers(Request $request){
+
+        $articles = Article::orderby('updated_at', 'desc')->take(11)->get();
+        $cooperationLogos = CooperationLogos::orderby('updated_at', 'desc')->take(7)->get();
+        $galleries = Gallery::orderby('updated_at', 'desc')->get();
+        $players = Player::paginate(100);
+        $page = 'home';
+        $player_type = [
+            'forward' => 'Довтлогч',
+            'defender' => 'Хамгаалагч',
+            'midfielder' => 'Дунд блоккэр',
+            'goalkeeper' => 'Либэро',
+        ];
+
+        return view('players')->with([
+            'page' => $page,
+            'articles' => $articles,
+            'cooperationLogos' => $cooperationLogos,
+            'galleries' => $galleries,
+            'players' => $players,
+            'player_type' => $player_type
+        ]);
+
+    }
+    public function showTeam($id){
+
+        $articles = Article::orderby('updated_at', 'desc')->take(11)->get();
+        $cooperationLogos = CooperationLogos::orderby('updated_at', 'desc')->take(7)->get();
+        $galleries = Gallery::orderby('updated_at', 'desc')->get();
+
+        $team = Team::find($id);
+        $page = 'home';
+        $comps = Competition::where('main_team_id',$id)->orWhere('second_team_id', $id)->get();
+
+        // dd($comps);
+
+        return view('team_show')->with([
+            'page' => $page,
+            'articles' => $articles,
+            'cooperationLogos' => $cooperationLogos,
+            'galleries' => $galleries,
+            'team' => $team,
+            'comps' => $comps
+        ]);
+
+    }
+    public function showAllteams(){
+
+        $articles = Article::orderby('updated_at', 'desc')->take(11)->get();
+        $cooperationLogos = CooperationLogos::orderby('updated_at', 'desc')->take(7)->get();
+        $galleries = Gallery::orderby('updated_at', 'desc')->get();
+
+        $teams = Team::paginate(50);
+        $page = 'home';
+
+        $team_cats = [
+            '21 аймагийн УАШТ',
+            '330 сумын АШТэмцээн',
+            'Хөгжлийн Лиг',
+            'Оюутны Лиг',
+            'зэрэглэлийн УАШТэмцээн',
+            'С зэрэглэл',
+            'Д зэрэглэл',
+            'Залуучуудын УАШТ',
+            'Безнис кап',
+            'U19',
+            'U18',
+            'U16',
+            'U14',
+            'Mini'
+
+        ];
+
+
+
+        return view('allteams_show')->with([
+            'page' => $page,
+            'articles' => $articles,
+            'cooperationLogos' => $cooperationLogos,
+            'galleries' => $galleries,
+            'teams' => $teams,
+            'team_cats' => $team_cats
+        ]);
+
+    }
 
     public function showCompetition($id){
 

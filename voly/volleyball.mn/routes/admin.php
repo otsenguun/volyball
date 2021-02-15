@@ -6,6 +6,9 @@ use App\Http\Controllers\admin\CooperationController;
 use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\PicturesController;
 use App\Http\Controllers\admin\UsersController;
+use App\Http\Controllers\TeamsController;
+use App\Http\Controllers\PlayerController;
+
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CompertitionController;
@@ -64,3 +67,6 @@ Route::resource('Competition', CompertitionController::class);
 
 #Teams
 Route::resource('Teams', TeamsController::class);
+
+#Player
+Route::resource('Player', PlayerController::class);

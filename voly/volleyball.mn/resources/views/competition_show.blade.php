@@ -28,7 +28,7 @@
           <div class="row">
             <div class="col-md-5 col-lg-5">
               <div class="team">
-                <img src="img/clubs-logos/colombia.png" alt="club-logo" />
+                <img src="{{asset('app/'.$comp->mainTeamLogo())}}" alt="club-logo" />
                 <a href="#">{{$comp->main_team_name}}</a>
                 <ul>
                   <li>MVP: {{$comp->mvp_main}}</li>
@@ -62,7 +62,7 @@
             <div class="col-md-5 col-lg-5">
               <div class="team right">
                 <a href="#">{{$comp->second_team_name}}</a>
-                <img src="img/clubs-logos/japan.png" alt="club-logo" />
+                <img src="{{asset('app/'.$comp->secondTeamLogo())}}" alt="club-logo" />
                 <ul>
                   <li>MVP: {{$comp->mvp_second}}</li>
                   @foreach($mvp_second_info as $point_key => $mvp)
@@ -83,7 +83,7 @@
             <div class="col-lg-12">
               <div class="timeline-result">
                 <div class="team-timeline">
-                  <img src="img/clubs-logos/colombia.png" alt="club-logo" />
+                  <img src="{{asset('app/'.$comp->mainTeamLogo())}}" alt="club-logo" />
                   <a href="#">{{$comp->main_team_name}}</a>
                 </div>
 
@@ -111,7 +111,7 @@
 
                 </ul>
                 <div class="team-timeline">
-                  <img src="img/clubs-logos/japan.png" alt="club-logo" />
+                  <img src="{{asset('app/'.$comp->secondTeamLogo())}}" alt="club-logo" />
                   <a href="#">{{$comp->second_team_name}}</a>
                 </div>
               </div>
@@ -329,7 +329,7 @@
                       <div class="col-lg-5">
                         <div class="team">
                           <img
-                            src="img/clubs-logos/colombia.png"
+                            src="{{asset('app/'.$comp->mainTeamLogo())}}"
                             alt="club-logo"
                           />
                           <a href="#">{{$comp->main_team_name}}</a>
@@ -344,7 +344,7 @@
                         <div class="team right">
                           <a href="#">{{$comp->second_team_name}}</a>
                           <img
-                            src="img/clubs-logos/japan.png"
+                            src="{{asset('app/'.$comp->secondTeamLogo())}}"
                             alt="club-logo"
                           />
                         </div>

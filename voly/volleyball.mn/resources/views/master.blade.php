@@ -68,7 +68,7 @@
               <a href="{{ url('/news/list') }}">Мэдээ</a>
             </li>
              <li class="current">
-              <a href="all-teams.html">Багууд</a>
+              <a href="{{url('showAllteams')}}">Багууд</a>
             </li>
             <li>
               <a href="#">Тэмцээнүүд</a>
@@ -80,7 +80,7 @@
                     </h5>
                     <ul>
                       <li><a href="points.html">Оноо заалт</a></li>
-                      <li><a href="all-players.html">Тоглогчид</a></li>
+                      <li><a href="{{url('allplayers_show')}}">Тоглогчид</a></li>
                       <li><a href="#">Грүппүүд</a></li>
                       <li><a href="calendar.html">Калэндар</a></li>
                       <li><a href="contact.html">Бидэнтэй холбогдох</a></li>
@@ -93,7 +93,7 @@
                     </h5>
                     <div class="img-hover">
                       <img src="img/blog/1.jpg" alt="" class="img-responsive" />
-                      <div class="overlay"><a href="all-teams.html">+</a></div>
+                      <div class="overlay"><a href="{{url('showAllteams')}}">+</a></div>
                     </div>
                   </div>
 
@@ -104,7 +104,7 @@
                     </h5>
                     <div class="img-hover">
                       <img src="img/blog/2.jpg" alt="" class="img-responsive" />
-                      <div class="overlay"><a href="all-players.html">+</a></div>
+                      <div class="overlay"><a href="{{url('allplayers_show')}}">+</a></div>
                     </div>
                   </div>
 
@@ -133,11 +133,11 @@
                       <li><a href="points.html">Бидний тухай</a></li>
                       <li><a href="#">Ерөнхийлөгч</a></li>
                       <li><a href="#">Зургын цомог</a></li>
-                     
+
                     </ul>
                   </div>
 
-  
+
                 </div>
               </div>
             </li>
@@ -158,7 +158,7 @@
               <a href="http://volleyball.mn/">Нүүр</a>
               <ul>
                 <li>
-                  <a href="all-players.html">Бүх Тоглогчид</a>
+                  <a href="{{url('allplayers_show')}}">Бүх Тоглогчид</a>
                 </li>
                 <li>
                   <a href="single-player.html">Нэг тоглогч</a>
@@ -172,10 +172,10 @@
               </ul>
             </li>
             <li>
-              <a href="single-team.html">Багууд</a>
+              <a href="{{url('showAllteams')}}">Багууд</a>
               <ul>
                 <li>
-                  <a href="single-team.html">Бүх багууд</a>
+                  <a href="{{url('showAllteams')}}">Бүх багууд</a>
                 </li>
               </ul>
             </li>

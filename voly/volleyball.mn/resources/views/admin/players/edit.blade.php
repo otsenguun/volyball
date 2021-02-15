@@ -47,10 +47,10 @@
         <div>
             <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Хяналтын хуудас</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('Competition.index') }}">Тэмцээний жагсаалт</a></li>
-                <li class="breadcrumb-item active">Тэмцээн засах</li>
+                <li class="breadcrumb-item"><a href="{{ route('Competition.index') }}">Тоглогчийн жагсаалт</a></li>
+                <li class="breadcrumb-item active">Тоглогч нэмэх</li>
             </ul>
-            <h1 class="page-header mb-0">Тэмцээн засах</h1>
+            <h1 class="page-header mb-0">Тоглогч нэмэх</h1>
         </div>
         <div class="ml-auto">
             <a href="{{ route('Competition.index') }}" class="btn btn-primary"><i class="fa fa-plus-circle fa-fw mr-1"></i>Буцах</a>
@@ -76,121 +76,107 @@
     </div>
     <div class="card" style="padding: 25px;">
         <div class="container">
-            <form action="{{ route('Competition.update',$comp->id) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('Player.update',$player->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 {{ method_field('PUT') }}
                 <div class="row">
                     <div class="col-md-8">
                         <h4>Үндсэн хэсэг</h4>
-                        <div class="form-group">
-                            <label for="">Тэмцээний гарчиг</label>
-                            <input type="text" name="name"  class="form-control" required="" value="{{$comp->name}}">
-                        </div>
-
-                        <div class="form-group">
-                            <label for=""> Тэмцээний заавар</label>
-                            <textarea name="match_guide" class="summernote" id="contents" title="Contents" required="">
-								{!! $comp->match_guide !!}
-							</textarea>
-                        </div>
                         <div class="row">
                             <div class="col-md-6">
-                                Эхний багийн нэр
-                                <input name="main_team_name" type="text" class="form-control" value="{{$comp->main_team_name}}" required>
-                                Эхний багийн огноо
-                                <input name="score_main" type="number" class="form-control" value="{{$comp->score_main}}">
-                                Эхний багийн холбох дугаар
-                                <input name="main_team_id" type="text" class="form-control"  value="{{$comp->main_team_id}}">
+                                 Нэр:
+                                <input type="text" name="frist_name" class="form-control" required="" value="{{$player->frist_name}}">
+                                 Овог:
+                                <input name="last_name" type="text" class="form-control" required value="{{$player->last_name}}">
+
+                                Нийт авсан оноо
+                                <input name="total_score" type="number" class="form-control" value="{{$player->total_score}}">
+                                Нийт MVP
+                                <input name="total_mvp" type="number" class="form-control" value="{{$player->total_mvp}}">
                             </div>
                             <div class="col-md-6">
-                                Дараагийн багийн нэр
-                                <input name="second_team_name" type="text" class="form-control" required value="{{$comp->second_team_name}}">
-                                Дараагийн багийн огноо
-                                <input name="score_second" type="number" class="form-control" value="{{$comp->score_second}}">
-                                Дараагийн багийн холбох дугаар
-                                <input name="second_team_id" type="text" class="form-control" value="{{$comp->second_team_id}}">
+                                Хувийн дугаар:
+                                <input name="huviin_number" type="text" class="form-control" value="{{$player->huviin_number}}">
+                                Баг:
+                                <select name="team_id" id="" required class="form-control">
+                                    <option value="">Баг -Сонго</option>
+                                    @foreach($teams as $team)
+                                    <option @if($team->id == $player->team_id) selected @endif value="{{$team->id}}">{{$team->team_name}}</option>
+                                    @endforeach
+
+                                </select>
+                                Нийт тоглосон
+                                <input name="total_match" type="number" class="form-control" value="{{$player->total_match}}">
                             </div>
                         </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                Мэйл
+                                <input name="social" type="text" class="form-control" value="{{$player->social}}">
+                               Facebook
+                                <input name="facebook" type="text" class="form-control" value="{{$player->facebook}}">
+                            </div>
+                            <div class="col-md-6">
+                                twiter
+                                <input name="twiter" type="text" class="form-control" value="{{$player->twiter}}">
+                                instagramm
+                                <input name="instagramm" type="text" class="form-control" value="{{$player->instagramm}}">
+                            </div>
+                            <div class="col-md-6">
+                                You tube
+                                <input name="you_tube" type="text" class="form-control" value="{{$player->you_tube}}">
+                            </div>
+
+                        </div>
+                        <hr>
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                Жин /кг/
+                                <input name="weight" type="text" class="form-control" value="{{$player->weight}}">
+                               Өндөр /м/
+                                <input name="facebook" type="text" class="form-control" value="{{$player->facebook}}">
+                            </div>
+                            <div class="col-md-6">
+                                Гарал
+                                <input name="country" type="text" class="form-control" value="{{$player->country}}">
+                                Төрсөн гавар
+                                <input name="country_live" type="text" class="form-control" value="{{$player->country_live}}">
+                                Төрсөн он
+                                <input name="brithday" type="date" class="form-control" value="{{$player->brithday}}">
+                            </div>
+
+                        </div>
+
                         <div class="form-group">
-                            <label for=""> Тэмцээний Дэлгэрэнгүй</label>
+                            <label for=""> Тоглогчийн тухай</label>
                             <textarea name="details" class="summernote" id="contents" title="Contents" required="">
 								@if(Session('backarticle')) {!! Session('backarticle') !!} @endif
-
-                                {!! $comp->details  !!}
-							</textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for=""> Тэмцээний хаяг</label>
-                            <textarea name="address" class="form-control">
-                                {{$comp->address}}
+                                {{$player->details}}
 							</textarea>
                         </div>
                         <hr>
 
-                        <h4> Статистк болон MVP</h4>
+                        <h4> Статистк </h4>
                         <div class="row">
-                            <div class="col-md-6">
-                                Эхний багийн MVP
-                                <input name="mvp_main" type="text" class="form-control" required value="{{$comp->mvp_main}}">
-                                @php
-
-                                    $mvp_main_info = unserialize($comp->mvp_main_info);
-                                    $mvp_second_info = unserialize($comp->mvp_second_info);
-                                @endphp
-
-                                @foreach($statistic_info as $key => $info)
-                                Эхний {{$info}}
-                                <input name="mvp_main_info[{{$info}}]" type="number" class="form-control" value="{{isset($mvp_main_info[$info]) ? $mvp_main_info[$info] : '' }}">
-                                @endforeach
-                            </div>
-                            <div class="col-md-6">
-                                Дараагийн MVP
-                                <input name="mvp_second" type="text" class="form-control" required value="{{$comp->mvp_second}}">
-
-                                @foreach($statistic_info as $key => $info)
-                                Дараагийн {{$info}}
-                                <input name="mvp_second_info[{{$info}}]" type="number" class="form-control" value="{{isset($mvp_second_info[$info]) ? $mvp_second_info[$info] : '' }}" >
-                                @endforeach
-                            </div>
-                        </div>
-
-                        <h4> Сэт </h4>
-                        {{-- <button class="btn btn-success btn-xs" type="button"> <i class="fa fa-plus"></i> </button> --}}
-                        <div class="row">
-
                             @php
-                                $sets = unserialize($comp->sets);
-                            @endphp
-                            @foreach($set_count as $count)
-                            <div class="col-md-6">
-                                Эхний баг Сэт {{$count}}
-                                <input name="main_set[{{$count}}]" type="text" class="form-control" value="{{isset($sets['main'][$count]) ?  $sets['main'][$count] : ''}}">
-
-                            </div>
-                            <div class="col-md-6">
-                                Дараагийн баг Сэт {{$count}}
-                                <input name="second_set[{{$count}}]" type="text" class="form-control" value ="{{isset($sets['second'][$count]) ?  $sets['second'][$count] : ''}}">
-                            </div>
-                            @endforeach
-
-                        </div>
-                        <h4>Тоглолтын Статистк</h4>
-                            @php
-
-                            $match_status = unserialize($comp->match_status);
+                                $statistik = unserialize($player->statistik);
 
                             @endphp
-                        <div class="row">
+                            @foreach($statistik as $title => $title_stat)
 
-                            @foreach($main_statistic as $ms)
-                            <div class="col-md-6">
-                                Эхний баг {{$ms}}
-                                <input name="request_match_status[{{$ms}}]" type="text" class="form-control" value="{{isset( $match_status['main'][$ms]) ? $match_status['main'][$ms] : ''}}">
 
-                            </div>
-                            <div class="col-md-6">
-                                Дараагийн баг {{$ms}}
-                                <input name="request_match_second[{{$ms}}]" type="text" class="form-control" value="{{isset( $match_status['second'][$ms]) ? $match_status['second'][$ms] : ''}}">
+                            <div class="col-md-5">
+                                <h5>{{$title}}</h5>
+                                <hr>
+                                @foreach ($title_stat as $key => $item )
+                                    {{$key}}
+
+                                    <input name="statictic[{{$title}}][{{$key}}]" value="{{$item}}" type="text" class="form-control" required>
+
+                                @endforeach
+
                             </div>
                             @endforeach
 
@@ -204,39 +190,29 @@
                             <input type="text" class="form-control" required="" disabled="true" value="{{ Auth::user()->email }}">
                         </div>
                         <div class="form-group">
-                            <label for="">Тэмцээний төрөл</label>
-                            <select name="category" id="" class="form-control">
-                                    <option>-Сонго</option>
-                                    <option value="1" @if($comp->status == 1) selected @endif>Олон улсын</option>
-                                    <option value="2" @if($comp->status == 2) selected @endif>Энгийн</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Тэмцээний төлөв</label>
-                            <select name="status" id="" class="form-control">
-                                    <option @if($comp->status == 1) selected @endif value="1">Эхлээгүй</option>
-                                    <option @if($comp->status == 2) selected @endif value="2">Дууссан</option>
+                            <label for="">Тоглогчийн үүргэ</label>
+                            <select name="player_type" id="" class="form-control">
+                                @foreach($player_type as $key => $value)
+                                <option @if($player->player_type == $key) selected @endif value="{{$key}}">{{ $value}}</option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="">Тэмцээний онгоо</label>
-                            <input name="create_date" type="date" value="{{$comp->create_date}}" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">Үзэгчид</label>
-                            <input name="uzegch_count" type="number" class="form-control" value="{{$comp->uzegch_count}}">
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="">Тэмцээний зураг хуулах</label>
+                            <img src="{{asset('app/'.$player->image)}}" alt="" style="width: 100px">
+                            <label for="">Тоглогчийн зураг хуулах</label>
                             <input type="file" class="form-control" name="image">
                         </div>
 
                         <div class="form-group">
-                            <label for="">Тэмцээний backgound зураг хуулах</label>
+                            <img src="{{asset('app/'.$player->cover_image)}}" alt="" style="width: 100px">
+                            <label for="">Тоглогчийн cover хуулах</label>
+                            <input type="file" class="form-control" name="cover">
+                        </div>
+
+                        <div class="form-group">
+                            <img src="{{asset('app/'.$player->background_image)}}" alt="" style="width: 100px">
+                            <label for="">Тоглогчийн backgorund хуулах</label>
                             <input type="file" class="form-control" name="background_image">
                         </div>
 

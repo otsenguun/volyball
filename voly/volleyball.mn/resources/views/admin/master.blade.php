@@ -137,13 +137,13 @@
 					</a>
                 </div>
                     <div class="menu-item @if(isset($page) && $page == 'team') active @endif">
-					<a href="{{ url('/admin/team') }}" class="menu-link">
+					<a href="{{ route('Teams.index') }}" class="menu-link">
 						<span class="menu-icon"><i class="fas fa-newspaper"></i></span>
 						<span class="menu-text">Баг</span>
 					</a>
                 </div>
                     <div class="menu-item @if(isset($page) && $page == 'players') active @endif">
-					<a href="{{ url('/admin/playes') }}" class="menu-link">
+					<a href="{{ route('Player.index') }}" class="menu-link">
 						<span class="menu-icon"><i class="fas fa-newspaper"></i></span>
 						<span class="menu-text">Тоглогч</span>
 					</a>

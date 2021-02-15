@@ -72,6 +72,9 @@ class CompertitionController extends Controller
         $comp->main_team_name = $request->main_team_name;
         $comp->second_team_name = $request->second_team_name;
 
+        $comp->main_team_id = $request->main_team_id;
+        $comp->second_team_id = $request->second_team_id;
+
         $comp->mvp_main = $request->mvp_main;
         $comp->mvp_second = $request->mvp_second;
         $comp->mvp_main_info = serialize($request->mvp_main_info);
@@ -190,6 +193,10 @@ class CompertitionController extends Controller
 
         $comp->main_team_name = $request->main_team_name;
         $comp->second_team_name = $request->second_team_name;
+
+        $comp->main_team_id = $request->main_team_id;
+        $comp->second_team_id = $request->second_team_id;
+
 
         $comp->mvp_main = $request->mvp_main;
         $comp->mvp_second = $request->mvp_second;

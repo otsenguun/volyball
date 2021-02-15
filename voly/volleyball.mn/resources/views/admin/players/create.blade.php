@@ -47,10 +47,10 @@
         <div>
             <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Хяналтын хуудас</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('Competition.index') }}">Тэмцээний жагсаалт</a></li>
-                <li class="breadcrumb-item active">Тэмцээн нэмэх</li>
+                <li class="breadcrumb-item"><a href="{{ route('Competition.index') }}">Тоглогчийн жагсаалт</a></li>
+                <li class="breadcrumb-item active">Тоглогч нэмэх</li>
             </ul>
-            <h1 class="page-header mb-0">Тэмцээн нэмэх</h1>
+            <h1 class="page-header mb-0">Тоглогч нэмэх</h1>
         </div>
         <div class="ml-auto">
             <a href="{{ route('Competition.index') }}" class="btn btn-primary"><i class="fa fa-plus-circle fa-fw mr-1"></i>Буцах</a>
@@ -76,104 +76,101 @@
     </div>
     <div class="card" style="padding: 25px;">
         <div class="container">
-            <form action="{{ route('Competition.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('Player.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-md-8">
                         <h4>Үндсэн хэсэг</h4>
-                        <div class="form-group">
-                            <label for="">Тэмцээний гарчиг</label>
-                            <input type="text" name="name" class="form-control" required="" value="@if(Session('backtitle')){{ Session('backtitle') }} @endif">
+                        <div class="row">
+                            <div class="col-md-6">
+                                 Нэр:
+                                <input type="text" name="frist_name" class="form-control" required="" value="@if(Session('backtitle')){{ Session('backtitle') }} @endif">
+                                 Овог:
+                                <input name="last_name" type="text" class="form-control" required>
+
+                                Нийт авсан оноо
+                                <input name="total_score" type="number" class="form-control">
+                                Нийт MVP
+                                <input name="total_mvp" type="number" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                Хувийн дугаар:
+                                <input name="huviin_number" type="text" class="form-control">
+                                Баг:
+                                <select name="team_id" id="" required class="form-control">
+                                    <option value="">Баг -Сонго</option>
+                                    @foreach($teams as $team)
+                                    <option value="{{$team->id}}">{{$team->team_name}}</option>
+                                    @endforeach
+
+                                </select>
+                                Нийт тоглосон
+                                <input name="total_match" type="number" class="form-control">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                Мэйл
+                                <input name="social" type="text" class="form-control">
+                               Facebook
+                                <input name="facebook" type="text" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                twiter
+                                <input name="twiter" type="text" class="form-control">
+                                instagramm
+                                <input name="instagramm" type="text" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                You tube
+                                <input name="you_tube" type="text" class="form-control">
+                            </div>
+
+                        </div>
+                        <hr>
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                Жин /кг/
+                                <input name="weight" type="text" class="form-control">
+                               Өндөр /м/
+                                <input name="facebook" type="text" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                Гарал
+                                <input name="country" type="text" class="form-control">
+                                Төрсөн гавар
+                                <input name="country_live" type="text" class="form-control">
+                                Төрсөн он
+                                <input name="brithday" type="date" class="form-control">
+                            </div>
+
                         </div>
 
                         <div class="form-group">
-                            <label for=""> Тэмцээний заавар</label>
-                            <textarea name="match_guide" class="summernote" id="contents" title="Contents" required="">
-								@if(Session('backarticle')) {!! Session('backarticle') !!} @endif
-							</textarea>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                Эхний багийн нэр
-                                <input name="main_team_name" type="text" class="form-control" required>
-                                Эхний багийн огноо
-                                <input name="score_main" type="number" class="form-control">
-                                Эхний багийн холбох дугаар
-                                <input name="main_team_id" type="text" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                Дараагийн багийн нэр
-                                <input name="second_team_name" type="text" class="form-control" required>
-                                Дараагийн багийн огноо
-                                <input name="score_second" type="number" class="form-control">
-                                Дараагийн багийн холбох дугаар
-                                <input name="second_team_id" type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for=""> Тэмцээний Дэлгэрэнгүй</label>
+                            <label for=""> Тоглогчийн тухай</label>
                             <textarea name="details" class="summernote" id="contents" title="Contents" required="">
 								@if(Session('backarticle')) {!! Session('backarticle') !!} @endif
 							</textarea>
                         </div>
-                        <div class="form-group">
-                            <label for=""> Тэмцээний хаяг</label>
-                            <textarea name="address" class="form-control">
-							</textarea>
-                        </div>
                         <hr>
 
-                        <h4> Статистк болон MVP</h4>
+                        <h4> Статистк </h4>
                         <div class="row">
-                            <div class="col-md-6">
-                                Эхний багийн MVP
-                                <input name="mvp_main" type="text" class="form-control" required>
-                                @foreach($statistic_info as $key => $info)
-                                Эхний {{$info}}
-                                <input name="mvp_main_info[{{$info}}]" type="number" class="form-control">
+                            @foreach($team_statistic as $title => $title_stat)
+
+
+                            <div class="col-md-5">
+                                <h5>{{$title}}</h5>
+                                <hr>
+                                @foreach ($title_stat as $key => $item )
+                                    {{$key}}
+
+                                    <input name="statictic[{{$title}}][{{$key}}]" value="{{$item}}" type="text" class="form-control" required>
+
                                 @endforeach
-                            </div>
-                            <div class="col-md-6">
-                                Дараагийн MVP
-                                <input name="mvp_second" type="text" class="form-control" required>
 
-                                @foreach($statistic_info as $key => $info)
-                                Дараагийн {{$info}}
-                                <input name="mvp_second_info[{{$info}}]" type="number" class="form-control">
-                                @endforeach
-                            </div>
-                        </div>
-
-                        <h4> Сэт </h4>
-                        {{-- <button class="btn btn-success btn-xs" type="button"> <i class="fa fa-plus"></i> </button> --}}
-                        <div class="row">
-
-                            @foreach($set_count as $count)
-                            <div class="col-md-6">
-                                Эхний баг Сэт {{$count}}
-                                <input name="main_set[{{$count}}]" type="text" class="form-control">
-
-                            </div>
-                            <div class="col-md-6">
-                                Дараагийн баг Сэт {{$count}}
-                                <input name="second_set[{{$count}}]" type="text" class="form-control">
-                            </div>
-                            @endforeach
-
-                        </div>
-                        <h4>Тоглолтын Статистк</h4>
-
-                        <div class="row">
-
-                            @foreach($main_statistic as $ms)
-                            <div class="col-md-6">
-                                Эхний баг {{$ms}}
-                                <input name="request_match_status[{{$ms}}]" type="text" class="form-control">
-
-                            </div>
-                            <div class="col-md-6">
-                                Дараагийн баг {{$ms}}
-                                <input name="request_match_second[{{$ms}}]" type="text" class="form-control">
                             </div>
                             @endforeach
 
@@ -187,38 +184,26 @@
                             <input type="text" class="form-control" required="" disabled="true" value="{{ Auth::user()->email }}">
                         </div>
                         <div class="form-group">
-                            <label for="">Тэмцээний төрөл</label>
-                            <select name="category" id="" class="form-control">
-                                    <option>-Сонго</option>
-                                    <option value="1">Олон улсын</option>
-                                    <option value="2">Энгийн</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Тэмцээний төлөв</label>
-                            <select name="status" id="" class="form-control">
-                                    <option value="1">Эхлээгүй</option>
-                                    <option value="2">Дууссан</option>
+                            <label for="">Тоглогчийн үүргэ</label>
+                            <select name="player_type" id="" class="form-control">
+                                @foreach($player_type as $key => $value)
+                                <option value="{{$key}}">{{ $value}}</option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="">Тэмцээний онгоо</label>
-                            <input name="create_date" type="date" value="{{date('Y-m-d')}}" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">Үзэгчид</label>
-                            <input name="uzegch_count" type="number" value="" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">Тэмцээний зураг хуулах</label>
+                            <label for="">Тоглогчийн зураг хуулах</label>
                             <input type="file" class="form-control" name="image" required="">
                         </div>
 
                         <div class="form-group">
-                            <label for="">Тэмцээний backgound зураг хуулах</label>
+                            <label for="">Тоглогчийн cover хуулах</label>
+                            <input type="file" class="form-control" name="cover" required="">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Тоглогчийн backgorund хуулах</label>
                             <input type="file" class="form-control" name="background_image" required="">
                         </div>
 
