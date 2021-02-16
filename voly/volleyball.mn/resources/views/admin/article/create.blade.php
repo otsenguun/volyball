@@ -104,6 +104,13 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="">Онцлох мэдээ</label>
+                            <select name="is_special" id="" class="form-control">
+                                <option value="1">Энгийн</option>
+                                <option value="2">Онцлох</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="">Мэдээний зураг хуулах</label>
                             <input type="file" class="form-control" name="image" required="">
                         </div>

@@ -1,5 +1,11 @@
 @extends('master')
 @section('content')
+
+<style>
+    .top-player{
+        height: 250px;
+    }
+</style>
 <!-- Sponsors-->
 <div class="container" style="position: relative">
     <ul class="home-sponsors sponsors-carousel" style="padding: 20px 50px">
@@ -17,7 +23,6 @@
         <div class="swiper-container">
           <div class="swiper-wrapper">
             @foreach($articles as $key => $article)
-                @if($key < 4)
                     <div class="swiper-slide">
                     <div class="card-wrapper">
                         <article class="card" role="article">
@@ -33,7 +38,6 @@
                         </article>
                     </div>
                     </div>
-                @endif
             @endforeach
           </div>
           <!-- Add Arrows -->
@@ -58,10 +62,30 @@
           </div>
         </div> -->
         <!-- End bottom -->
+
+        <div class="card-wrapper">
+            @foreach($normal_articles as $key => $article)
+                @if($key < 2)
+                <article class="card" role="article" style="margin: 10px">
+                    <a href="{{ url('/news/'.$article->id.'/'.$article->slug) }}">
+                    <div class="card-text">
+                        <div class="card-meta">{{ $article->category }}</div>
+                        <h2 class="card-title">
+                            {{ Str::limit($article->title, 60) }}
+                        </h2>
+                    </div>
+                    <img class="card-image" src="{{ url($article->image) }}" alt="{{ $article->title }}"/>
+                    </a>
+                </article>
+                @endif
+            @endforeach
+        </div>
+
+
       </div>
       <div class="home-slider-right">
-        @foreach($articles as $key => $article)
-            @if($key == 4)
+        @foreach($normal_articles as $key => $article)
+            @if($key >= 2)
                 <div class="card-wrapper">
                 <article class="card" role="article">
                     <a href="{{ url('/news/'.$article->id.'/'.$article->slug) }}">
@@ -81,7 +105,38 @@
     </div>
 </div>
 <!-- End section-hero-posts-->
+<div class="white-section paddings">
+    <div class="container">
 
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <h3 class="clear-title no-margin">Шилдэг тоглогчид</h3>
+            </div>
+
+
+        </div>
+
+
+        <div class="row portfolioContainer margin-top">
+          @foreach($top_players as $player)
+            <!-- Item Gallery -->
+
+                <div class="col-sm-6 col-lg-4 col-xl-4 image" >
+                    <a href="{{url('/show_player',$player->id)}}">
+                    {{-- <img src="{{asset('app/'.$player->image)}}" alt=""> --}}
+                    <div class="top-player" style="background: url('app/{{$player->image}}')">
+
+                    </div>
+                    <h5>{{$player->last_name}} {{$player->frist_name}} </h5>
+                    </a>
+                </div>
+
+
+            <!-- Item Gallery -->
+          @endforeach
+        </div>
+    </div>
+  </div>
 <!-- Section Area - Content Central -->
 <section class="content-info" style="margin-top: 70px; margin-bottom: 30px;">
     <!-- Dark Home -->
@@ -169,8 +224,8 @@
                                               </a>
                                               <span class="points"> 90 </span>
                                             </li>
-                                                
-                                           
+
+
                                           </ul>
                                         </div>
                                       </div>
@@ -191,7 +246,7 @@
 
                                               <div class="goals-result">
                                                 <a href="#">
-                                               
+
                                                  Ховд Алтайн барс
                                                 </a>
 
@@ -200,7 +255,7 @@
                                                 </span>
 
                                                 <a href="#">
-                                                 
+
                                                    Хасумегастарс
                                                 </a>
                                               </div>
@@ -214,7 +269,7 @@
 
                                               <div class="goals-result">
                                                 <a href="#">
-                                               
+
                                                  Ховд Алтайн барс
                                                 </a>
 
@@ -223,7 +278,7 @@
                                                 </span>
 
                                                 <a href="#">
-                                                 
+
                                                    Хасумегастарс
                                                 </a>
                                               </div>
@@ -236,7 +291,7 @@
 
                                               <div class="goals-result">
                                                 <a href="#">
-                                               
+
                                                  Ховд Алтайн барс
                                                 </a>
 
@@ -245,7 +300,7 @@
                                                 </span>
 
                                                 <a href="#">
-                                                 
+
                                                    Хасумегастарс
                                                 </a>
                                               </div>

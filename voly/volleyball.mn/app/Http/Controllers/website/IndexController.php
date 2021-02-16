@@ -148,16 +148,20 @@ class IndexController extends Controller
 
     public function index()
     {
-        $articles = Article::orderby('updated_at', 'desc')->take(11)->get();
+        $articles = Article::where('is_special','2')->orderby('updated_at', 'desc')->take(5)->get();
+        $normal_articles = Article::where('is_special','1')->orderby('updated_at', 'desc')->take(4)->get();
+
         $cooperationLogos = CooperationLogos::orderby('updated_at', 'desc')->take(7)->get();
         $galleries = Gallery::orderby('updated_at', 'desc')->get();
-
+        $top_players = Player::select('frist_name','last_name','image')->take(9)->get();
         $page = 'home';
         return view('index')->with([
             'page' => $page,
             'articles' => $articles,
             'cooperationLogos' => $cooperationLogos,
             'galleries' => $galleries,
+            'normal_articles' => $normal_articles,
+            'top_players' => $top_players,
         ]);
     }
     public function newslist()

@@ -95,6 +95,7 @@ class ArticlesController extends Controller
             'username' => Auth::user()->nickname,
             'image' => $destinationPath.$image->getClientOriginalName(),
             'article' => $request->article,
+            'is_special' => $request->is_special
         ])->save();
         return Redirect::to('/admin/articles')->with('success', $request->title.' гарчигтай нийтлэлийг амжилттай нийтэллээ');
     }
@@ -202,6 +203,7 @@ class ArticlesController extends Controller
             'title' => $request->title,
             'slug' => Str::slug($request->title),
             'article' => $request->article,
+            'is_special' => $request->is_special
         ]);
 
         return Redirect::to('/admin/articles')->with('success', $request->title.' гарчигтай нийтлэлийг амжилттай засварлалаа.');

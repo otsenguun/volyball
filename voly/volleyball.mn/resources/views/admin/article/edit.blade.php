@@ -103,6 +103,13 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="">Онцлох мэдээ</label>
+                            <select name="is_special" id="" class="form-control">
+                                <option value="1" @if($article[0] == '1') selected @endif>Энгийн</option>
+                                <option value="2" @if($article[0] == '2') selected @endif>Онцлох</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <img src="{{ url($article[0]->image) }}" alt="volleyball.mn" style="height: 100px">
                         </div>
                         <div class="form-group">
